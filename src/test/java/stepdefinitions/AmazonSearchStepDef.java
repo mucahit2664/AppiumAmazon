@@ -33,10 +33,8 @@ public class AmazonSearchStepDef {
     @And("search {string}")
     public void search(String product) throws InterruptedException {
 
-
         amazonSearchPage.searchInbox.sendKeys(product);
         ((AndroidDriver) Driver.getAppiumDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
-
 
         Thread.sleep(4000);
     }
@@ -162,10 +160,4 @@ public class AmazonSearchStepDef {
         Assert.assertEquals(subtotal,result);
     }
 }
-
-  //  // Find and click on a random product
-  //  List<WebElement> allProducts = driver.findElements(By.xpath("//*[@id='endecaResultsWrapper']/div[3]"));
-  //  Random rand = new Random();
-  //  int randomProduct = rand.nextInt(allProducts.size());
-  //  allProducts.get(randomProduct).click();
 
