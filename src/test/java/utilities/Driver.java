@@ -33,15 +33,22 @@ public class Driver {
             desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigReader.getProperty("platformVersion"));
             desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigReader.getProperty("deviceName"));
             desiredCapabilities.setCapability(MobileCapabilityType.APP, ConfigReader.getProperty("appPath"));
-            desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-            desiredCapabilities.setCapability("autoAcceptAlert",true);
 
+           //desiredCapabilities.setCapability("appPackage","com.amazon.mShop.android.shopping");
+             //desiredCapabilities.setCapability("appPackage","com.amazon.mShop.navigation.MainActivity");
+            //desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+            desiredCapabilities.setCapability("autoAcceptAlert",true);
+            desiredCapabilities.setCapability("fullReset","false");
             if (ConfigReader.getProperty("platformName").equals("android")) {
             //if you do not provide app path so you should provide "appPackage" and "appActivity"
-            desiredCapabilities.setCapability("appPackage","");
-            desiredCapabilities.setCapability("appActivity","");
-            appiumDriver = new AndroidDriver(appiumServerURL,desiredCapabilities);
-            appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            //desiredCapabilities.setCapability("appPackage","");
+           //desiredCapabilities.setCapability("appActivity","");
+                //desiredCapabilities.setCapability("appActivity", "com.amazon.mShop.splashscreen.StartupActivity");
+                //desiredCapabilities.setCapability("appPackage", "in.amazon.mShop.android.shopping");
+
+
+                appiumDriver = new AndroidDriver(appiumServerURL,desiredCapabilities);
+            appiumDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             } else if (ConfigReader.getProperty("platformName").equals("ios")) {
                 //if you do not provide app path so you should use "bundleId"
                 desiredCapabilities.setCapability("bundleId",ConfigReader.getProperty("iosBundleId"));
