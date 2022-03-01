@@ -25,7 +25,7 @@ public class AmazonBurgerMenu {
     public void listCategories() throws InterruptedException {
        Thread.sleep(4000);
         for (WebElement departments : amazonBurgerMenuPage.departmentList) {
-            System.out.println(departments.getText());
+            //System.out.println(departments.getText());
         }
     }
 
@@ -38,7 +38,8 @@ public class AmazonBurgerMenu {
     public void listSubCategories() throws InterruptedException {
         Thread.sleep(5000);
         for(WebElement mensList:amazonBurgerMenuPage.mensFashionList){
-            System.out.println(mensList.getText());
+            //System.out.println(mensList.getText());
         }
+        amazonBurgerMenuPage.burgerMenu.click();
     }
 }

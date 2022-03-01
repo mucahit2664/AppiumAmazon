@@ -62,8 +62,8 @@ public class AmazonSearchPage {
     @AndroidFindBy(xpath = "//*[contains(@text,'Sony')]")
     public List<MobileElement> containTextSony;
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@text,'Nutella')]")
-    public List<MobileElement> containTextNutella;
+    @AndroidFindBy(xpath = "//android.view.View[contains(@text,'Samsung')]")
+    public List<MobileElement> containTextSamsung;
 
     @AndroidFindBy(xpath = "//*[@text='Next']")
     public MobileElement nextButton;

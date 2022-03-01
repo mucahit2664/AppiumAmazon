@@ -50,6 +50,9 @@ public class AmazonSignInPage {
     @AndroidFindBy(id="com.amazon.mShop.android.shopping:id/mshop_webView_container")
     public MobileElement allDepartmentsContainer;
 
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Home Tab 1 of 4\"]")
+    public MobileElement homeIcon;
+
     public void scrollToText(String text) {
         AndroidDriver driver = (AndroidDriver) Driver.getAppiumDriver();
         driver.findElementByAndroidUIAutomator(

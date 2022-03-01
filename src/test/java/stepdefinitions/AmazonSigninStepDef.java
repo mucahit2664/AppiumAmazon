@@ -17,7 +17,7 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class AmazonStepDef {
+public class AmazonSigninStepDef {
 AmazonSignInPage amazon=new AmazonSignInPage();
     @Given("Run the App")
     public void run_the_app() throws InterruptedException {
@@ -60,6 +60,11 @@ AmazonSignInPage amazon=new AmazonSignInPage();
         Assert.assertTrue(amazon.TEAM15Element.isDisplayed());
     }
 
+    @Given("click home button")
+    public void clickHomeButton() {
+        amazon.homeIcon.click();
+        amazon.homeIcon.click();
+    }
 
     @Given("scroll bottom of page and click {string}")
     public void scrollBottomOfPageAndClick(String string) throws InterruptedException {
@@ -68,7 +73,6 @@ AmazonSignInPage amazon=new AmazonSignInPage();
 //        do {
 //            list = amazon.allDepartmentsList;
 //            Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
-//
 //            int start_x = (int) (dimension.width * 0.9);
 //            int start_y = (int) (dimension.height * 0.8);
 //
@@ -76,22 +80,24 @@ AmazonSignInPage amazon=new AmazonSignInPage();
 //            int end_y = (int) (dimension.height * 0.1);
 //
 //            TouchAction touchAction = new TouchAction(Driver.getAppiumDriver());
-//
 //            touchAction.press(PointOption.point(start_x, start_y)).
 //                    moveTo(PointOption.point(end_x, end_y)).release().perform();
 //        }while(list.size()==0);
 
+
         Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
 
-            int start_x = (int) (dimension.width * 0.8);
+            int start_x = (int) (dimension.width * 0.9);
            int start_y = (int) (dimension.height * 0.8);
 
-            int end_x = (int) (dimension.width * 0.8);
-            int end_y = (int) (dimension.height * 0.0);
+            int end_x = (int) (dimension.width * 0.9);
+            int end_y = (int) (dimension.height * 0.1);
         Thread.sleep(5000);
            TouchAction touchAction = new TouchAction(Driver.getAppiumDriver());
-           touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).perform();
-        touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).perform();
+           touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+        touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+        touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+        touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
         touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
         touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
         touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
@@ -115,4 +121,6 @@ AmazonSignInPage amazon=new AmazonSignInPage();
 
 
     }
+
+
 }

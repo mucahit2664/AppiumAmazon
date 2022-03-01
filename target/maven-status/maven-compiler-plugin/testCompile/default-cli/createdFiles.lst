@@ -1,0 +1,12 @@
+runner\Runner.class
+stepdefinitions\AmazonSearchStepDef.class
+stepdefinitions\AmazonShopingListStepDef.class
+utilities\Driver.class
+pages\android\AmazonSearchPage.class
+pages\android\AmazonSignInPage.class
+stepdefinitions\AmazonSigninStepDef.class
+utilities\ConfigReader.class
+stepdefinitions\AmazonBurgerMenu.class
+pages\android\AmazonBurgerMenuPage.class
+pages\android\AmazonShopingListPage.class
+utilities\ReusableMethods.class

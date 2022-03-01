@@ -37,6 +37,18 @@ public class AmazonSearchStepDef {
         ((AndroidDriver) Driver.getAppiumDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
 
         Thread.sleep(4000);
+        Random rand = new Random();
+        int randomProduct = rand.nextInt(amazonSearchPage.containTextSony.size());
+        amazonSearchPage.containTextSony.get(randomProduct).click();
+        Thread.sleep(3000);
+        Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
+        int start_x = (int) (dimension.width * 0.5);
+        int start_y = (int) (dimension.height * 0.8);
+        int end_x = (int) (dimension.width * 0.5);
+        int end_y = (int) (dimension.height * 0.1);
+        TouchAction touchAction1 = new TouchAction(Driver.getAppiumDriver());
+        touchAction1.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+        amazonSearchPage.addtoCartButton.click();
     }
 
     @And("validate first product include it")
@@ -47,6 +59,8 @@ public class AmazonSearchStepDef {
 
     @Then("filters validate and click")
     public void filtersValidateAndClick() throws InterruptedException {
+        amazonSearchPage.searchClick.click();
+        ((AndroidDriver) Driver.getAppiumDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
         Assert.assertTrue(amazonSearchPage.filtersButton.isDisplayed());
         amazonSearchPage.filtersButton.click();
         Thread.sleep(3000);
@@ -98,39 +112,30 @@ public class AmazonSearchStepDef {
             int end_x = (int) (dimension.width * 0.8);
             int end_y = (int) (dimension.height * 0.2);
             TouchAction touchAction = new TouchAction(Driver.getAppiumDriver());
-            touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).perform();
+            touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
             list.add(s.getText());
-            touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).perform();
+           touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
             list.add(s.getText());
-//            touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).perform();
-//            list.add(s.getText());
+//            if (amazonSearchPage.nextButton.isDisplayed()){
+//                break;
+//            };
+
+         //touchAction.press(PointOption.point(end_x, end_y)).moveTo(PointOption.point(start_x, start_y)).release().perform();
         }
         System.out.println(list);
-              //Assert.assertTrue(amazonSearchPage.nextButton.isDisplayed());
-        Random rand = new Random();
-        int randomProduct = rand.nextInt(amazonSearchPage.containTextSony.size());
-      amazonSearchPage.containTextSony.get(randomProduct).click();
-        Thread.sleep(3000);
-        Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
-        int start_x = (int) (dimension.width * 0.5);
-        int start_y = (int) (dimension.height * 0.8);
-        int end_x = (int) (dimension.width * 0.5);
-        int end_y = (int) (dimension.height * 0.1);
-        TouchAction touchAction = new TouchAction(Driver.getAppiumDriver());
-        touchAction.press(PointOption.point(start_x, start_y)).
-                moveTo(PointOption.point(end_x, end_y)).release().perform();
-        amazonSearchPage.addtoCartButton.click();
+
+
     }
 
 
     @Given("select random products add to cart")
     public void selectRandomProductsAddToCart() throws InterruptedException {
         amazonSearchPage.searchClick.click();
-        amazonSearchPage.searchInbox.sendKeys("Nutella");
+        amazonSearchPage.searchInbox.sendKeys("Samsung");
         ((AndroidDriver) Driver.getAppiumDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
         Random random = new Random();
-        int randomNutella = random.nextInt(amazonSearchPage.containTextNutella.size());
-        amazonSearchPage.containTextNutella.get(randomNutella).click();
+        int randomSamsung = random.nextInt(amazonSearchPage.containTextSamsung.size());
+        amazonSearchPage.containTextSamsung.get(randomSamsung).click();
         Thread.sleep(4000);
 
         Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
