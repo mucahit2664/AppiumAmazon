@@ -36,5 +36,4 @@ Feature: Amazon
     Given click home button
     Given scroll bottom of page and click "All Departments"
 
-# trello anahtar:8d34cd845bb10aa7ffab59c472d51663
-  #trello token:c76c726b9c8d2dd8c297b5c03223f4b6910d6beda42a22748c6a253e96174c94
+
