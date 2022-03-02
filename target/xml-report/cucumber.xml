@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="5" time="272.23">
+<testcase classname="Amazon" name="TC01-02 Visit Amazon App" time="38.102">
+<system-out><![CDATA[Given Run the App...........................................................passed
+Given sign in an account....................................................passed
+Given validate sign in......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Amazon" name="TC03-08-09 ALL departman-Shoping list create, add, delete" time="65.266">
+<system-out><![CDATA[Given click burger button...................................................passed
+And click shop by department................................................passed
+And list categories.........................................................passed
+And select a category.......................................................passed
+And list sub categories.....................................................passed
+And click "List" button.....................................................passed
+And create a list...........................................................passed
+And add an idea on more options.............................................passed
+And delete idea on more options.............................................passed
+And delete ceated shoping list..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Amazon" name="TC04-05 search a product, filtering and sorting" time="116.113">
+<system-out><![CDATA[Given click search inbox....................................................passed
+And search "sony"...........................................................passed
+And validate first product include it.......................................passed
+Then filters validate and click.............................................passed
+Then select "Over-Ear Headphones" category..................................passed
+Then validate sort and click high to low....................................passed
+Then scroll page and add product to a list..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Amazon" name="TC06 select random product add to cart" time="37.659">
+<system-out><![CDATA[Given select random products add to cart....................................passed
+Then validate them..........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Amazon" name="TC07 go to bottom of page" time="14.153">
+<failure message="Cannot perform TouchUp action at (540, 197)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'ONER', ip: '192.168.1.107', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_322'&#10;Driver info: io.appium.java_client.android.AndroidDriver&#10;Capabilities {app: C:\Users\appium\IdeaProject..., appPackage: com.amazon.mShop.android.sh..., autoAcceptAlert: true, automationName: UiAutomator2, databaseEnabled: false, desired: {app: C:\Users\appium\IdeaProject..., autoAcceptAlert: true, automationName: UiAutomator2, deviceName: AndroidEmulator, fullReset: false, platformName: android, platformVersion: 11.0}, deviceApiLevel: 30, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5554, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: android, platformVersion: 11, statBarHeight: 135, takesScreenshot: true, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}&#10;Session ID: 9eaf45df-2c35-4037-8c7b-90f8bbd52261" type="org.openqa.selenium.InvalidElementStateException"><![CDATA[Given click home button.....................................................passed
+Given scroll bottom of page and click "All Departments".....................failed
+
+StackTrace:
+org.openqa.selenium.InvalidElementStateException: Cannot perform TouchUp action at (540, 197)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ONER', ip: '192.168.1.107', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_322'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\appium\IdeaProject..., appPackage: com.amazon.mShop.android.sh..., autoAcceptAlert: true, automationName: UiAutomator2, databaseEnabled: false, desired: {app: C:\Users\appium\IdeaProject..., autoAcceptAlert: true, automationName: UiAutomator2, deviceName: AndroidEmulator, fullReset: false, platformName: android, platformVersion: 11.0}, deviceApiLevel: 30, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5554, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: android, platformVersion: 11, statBarHeight: 135, takesScreenshot: true, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 9eaf45df-2c35-4037-8c7b-90f8bbd52261
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at io.appium.java_client.PerformsTouchActions.performTouchAction(PerformsTouchActions.java:41)
+	at io.appium.java_client.TouchAction.perform(TouchAction.java:187)
+	at stepdefinitions.AmazonSigninStepDef.scrollBottomOfPageAndClick(AmazonSigninStepDef.java:100)
+	at ✽.scroll bottom of page and click "All Departments"(file:///C:/Users/appium/IdeaProjects/AppiumAmazon/src/test/resources/features/Amazon01.feature:37)
+]]></failure>
+</testcase>
+</testsuite>

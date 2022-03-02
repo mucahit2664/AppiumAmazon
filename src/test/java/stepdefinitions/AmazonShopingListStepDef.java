@@ -29,8 +29,9 @@ public class AmazonShopingListStepDef {
     }
 
     @And("add an idea on more options")
-    public void addAnIdeaOnMoreOptions() {
+    public void addAnIdeaOnMoreOptions() throws InterruptedException {
         amazonShopingList.moreOptionsfirstShop.click();
+        Thread.sleep(2000);
         amazonShopingList.addIdeaButton.click();
         amazonShopingList.addIdeaInbox.click();
         Driver.getAppiumDriver().hideKeyboard();

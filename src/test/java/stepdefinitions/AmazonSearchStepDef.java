@@ -36,11 +36,11 @@ public class AmazonSearchStepDef {
         amazonSearchPage.searchInbox.sendKeys(product);
         ((AndroidDriver) Driver.getAppiumDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
 
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Random rand = new Random();
         int randomProduct = rand.nextInt(amazonSearchPage.containTextSony.size());
         amazonSearchPage.containTextSony.get(randomProduct).click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
         int start_x = (int) (dimension.width * 0.5);
         int start_y = (int) (dimension.height * 0.8);
@@ -48,6 +48,9 @@ public class AmazonSearchStepDef {
         int end_y = (int) (dimension.height * 0.1);
         TouchAction touchAction1 = new TouchAction(Driver.getAppiumDriver());
         touchAction1.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+        touchAction1.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+        //touchAction1.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+
         amazonSearchPage.addtoCartButton.click();
     }
 
@@ -100,7 +103,7 @@ public class AmazonSearchStepDef {
     @Then("scroll page and add product to a list")
     public void scrollPageAndAddProductToAList() throws InterruptedException {
         Thread.sleep(2000);
-        amazonSearchPage.closeButton.click();
+       amazonSearchPage.closeButton.click();
         amazonSearchPage.resultText.click();
 
         List<String> list=new ArrayList<>();
@@ -133,20 +136,23 @@ public class AmazonSearchStepDef {
         amazonSearchPage.searchClick.click();
         amazonSearchPage.searchInbox.sendKeys("Samsung");
         ((AndroidDriver) Driver.getAppiumDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
+        Thread.sleep(4000);
         Random random = new Random();
         int randomSamsung = random.nextInt(amazonSearchPage.containTextSamsung.size());
         amazonSearchPage.containTextSamsung.get(randomSamsung).click();
-        Thread.sleep(4000);
 
+        Thread.sleep(4000);
         Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
         int start_x = (int) (dimension.width * 0.5);
         int start_y = (int) (dimension.height * 0.8);
         int end_x = (int) (dimension.width * 0.5);
         int end_y = (int) (dimension.height * 0.1);
         TouchAction touchAction = new TouchAction(Driver.getAppiumDriver());
-        touchAction.press(PointOption.point(start_x, start_y)).
-                moveTo(PointOption.point(end_x, end_y)).release().perform();
+        touchAction.press(PointOption.point(start_x, start_y)). moveTo(PointOption.point(end_x, end_y)).release().perform();
+        touchAction.press(PointOption.point(start_x, start_y)).moveTo(PointOption.point(end_x, end_y)).release().perform();
+
         amazonSearchPage.addtoCartButton.click();
+       // amazonSearchPage.doneButton.click();
     }
 
     @Then("validate them")
@@ -156,13 +162,13 @@ public class AmazonSearchStepDef {
     amazonSearchPage.cartIcon.click();
     Assert.assertTrue(amazonSearchPage.subtotalText.isDisplayed());
 
-    String subtotal=amazonSearchPage.subTotalPrice.getText().replace("$", "");
-    String firstProductPrice=amazonSearchPage.firstProductPrice.getText().replace("$", "");
-    String secondProductPrice=amazonSearchPage.secondProductPrice.getText().replace("$", "");
-        System.out.println(subtotal+" "+firstProductPrice+" "+secondProductPrice);
-        double total = Double.parseDouble(firstProductPrice)+Double.parseDouble(secondProductPrice);
-        String result = String.valueOf(total) ;
-        Assert.assertEquals(subtotal,result);
+   String subtotal=amazonSearchPage.subTotalPrice.getText().replace("$", "");
+   String firstProductPrice=amazonSearchPage.firstProductPrice.getText().replace("$", "");
+   String secondProductPrice=amazonSearchPage.secondProductPrice.getText().replace("$", "");
+       System.out.println(subtotal+" "+firstProductPrice+" "+secondProductPrice);
+       double total = Double.parseDouble(firstProductPrice)+Double.parseDouble(secondProductPrice);
+       String result = String.valueOf(total) ;
+       Assert.assertEquals(subtotal,result);
     }
 }
 

@@ -54,10 +54,11 @@ AmazonSignInPage amazon=new AmazonSignInPage();
 
     @Given("validate sign in")
     public void validateSignIn() throws InterruptedException {
+        Thread.sleep(5000);
         amazon.accountIcon.click();
         Thread.sleep(15000);
 
-        Assert.assertTrue(amazon.TEAM15Element.isDisplayed());
+       Assert.assertTrue(amazon.TEAM15Element.isDisplayed());
     }
 
     @Given("click home button")
@@ -87,10 +88,10 @@ AmazonSignInPage amazon=new AmazonSignInPage();
 
         Dimension dimension = Driver.getAppiumDriver().manage().window().getSize();
 
-            int start_x = (int) (dimension.width * 0.9);
+            int start_x = (int) (dimension.width * 0.5);
            int start_y = (int) (dimension.height * 0.8);
 
-            int end_x = (int) (dimension.width * 0.9);
+            int end_x = (int) (dimension.width * 0.5);
             int end_y = (int) (dimension.height * 0.1);
         Thread.sleep(5000);
            TouchAction touchAction = new TouchAction(Driver.getAppiumDriver());

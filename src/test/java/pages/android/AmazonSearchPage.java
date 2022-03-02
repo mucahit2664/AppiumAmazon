@@ -62,7 +62,7 @@ public class AmazonSearchPage {
     @AndroidFindBy(xpath = "//*[contains(@text,'Sony')]")
     public List<MobileElement> containTextSony;
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@text,'Samsung')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Samsung')]")
     public List<MobileElement> containTextSamsung;
 
     @AndroidFindBy(xpath = "//*[@text='Next']")
@@ -92,7 +92,7 @@ public class AmazonSearchPage {
     @AndroidFindBy(xpath = "(//android.view.View)[29]")
     public MobileElement firstProductPrice;
 
-    @AndroidFindBy(xpath = "(//android.view.View)[58]")
+    @AndroidFindBy(xpath = "(//android.view.View)[90]")
     public MobileElement secondProductPrice;
 
 
