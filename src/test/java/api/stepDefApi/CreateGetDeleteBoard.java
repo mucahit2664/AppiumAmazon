@@ -8,11 +8,12 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import ui.utilities.ConfigReader;
 
+import java.io.*;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateBoard extends TestBaseApi {
+public class CreateGetDeleteBoard extends TestBaseApi {
 
     Response response;
     JsonPath jsonPath;
@@ -20,7 +21,10 @@ public class CreateBoard extends TestBaseApi {
 
 
     @Given("Send POST request for create {string} board")
-    public void send_post_request_for_create_board(String boardName) {
+    public void send_post_request_for_create_board(String boardName) throws FileNotFoundException {
+        //text dosyasini silme-temizleme
+        PrintWriter writer = new PrintWriter(ConfigReader.getProperty("idPath"));
+        writer.print("");
 
         //url tanımla
         //expected data-request data
@@ -42,7 +46,7 @@ public class CreateBoard extends TestBaseApi {
                  contentType("application/json").
                  body(requestBody).
                  when().
-                 post("{parametre}");
+                 post("/{parametre}");
 
         response.prettyPrint();
         jsonPath=response.jsonPath();
@@ -63,15 +67,32 @@ public class CreateBoard extends TestBaseApi {
         System.out.println(id);
         Assert.assertEquals(boardName,jsonPath.getString("name"));
 
+        String fileName=ConfigReader.getProperty("idPath");
+
+        //write to text id
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            writer.append(jsonPath.getString("id"));
+            writer.close();
+        } catch(Exception e){
+
+        }
     }
 
 
     @Given("send a Get request {string} board")
-    public void sendAGetRequestBoard(String boardName) {
+    public void sendAGetRequestBoard(String boardName) throws IOException {
         //{{baseurl}}/1/boards/{{id}}?key={{key}}&token={{token}}
-        String id="62220360cb37db5f543bd2d7";
+
+        String fileName=ConfigReader.getProperty("idPath");
+
+        //read to text id
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        String idText = br.readLine();
+        System.out.println(idText);
+
         setUp();
-        spec.pathParams("p1","boards","p2",id);
+        spec.pathParams("p1","boards","p2",idText);
 
         HashMap<String,String> requestBody=new HashMap<>();
         requestBody.put("key", ConfigReader.getProperty("key"));
@@ -89,12 +110,17 @@ public class CreateBoard extends TestBaseApi {
     }
 
     @Given("send a delete request {string}")
-    public void sendADeleteRequest(String boardName) {
+    public void sendADeleteRequest(String boardName) throws IOException, InterruptedException {
        // https://api.trello.com/1/boards/{{id}}?key={{key}}&token={{token}}
+        Thread.sleep(10000);
+        String fileName=ConfigReader.getProperty("idPath");
 
-        String id="62220360cb37db5f543bd2d7";
+        //read to text id
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        String idText = br.readLine();
+
         setUp();
-        spec.pathParams("p1","boards","p2",id);
+        spec.pathParams("p1","boards","p2",idText);
 
         HashMap<String,String> requestBody=new HashMap<>();
         requestBody.put("key", ConfigReader.getProperty("key"));

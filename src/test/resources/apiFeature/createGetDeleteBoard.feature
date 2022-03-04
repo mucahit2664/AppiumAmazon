@@ -1,5 +1,5 @@
 Feature: Trello_testi
-  Scenario: Create_board
+  Scenario: Create a board
     Given Send POST request for create "hayaller" board
     Then  Assert status code 200
     And Assert board name is "hayaller"
@@ -9,6 +9,6 @@ Feature: Trello_testi
     Then Assert get status code 200
     And Assert get board name is "hayaller"
 
-        Scenario:
+        Scenario:delete a board
      Given send a delete request "hayaller"
      And assert deleting
