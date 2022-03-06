@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 
 public class CreateCartPOJO extends TestBaseApi{
     Response response;
-
+    RequestPojo repo;
     @Given("Post request for create a card {string} with POJO")
     public void postRequestForCreateACardWithPOJO(String cardname) {
         //{{baseurl}}/1/cards?idList={{idListYD}}&key={{key}}&token={{token}}&name=umit
@@ -33,12 +33,15 @@ public class CreateCartPOJO extends TestBaseApi{
 
     @And("get response with POJO")
     public void getResponseWithPOJO() {
-        RequestPojo repo=response.as(RequestPojo.class);
+        repo=response.as(RequestPojo.class);
         System.out.println(repo);
     }
 
-    @And("Assert response")
-    public void assertResponse() {
+    @And("Assert response {String}")
+    public void assertResponse(String cardname) {
+
         Assert.assertEquals(200,response.statusCode());
+        Assert.assertEquals(cardname,repo.getName());
+        repo.getId();
     }
 }
