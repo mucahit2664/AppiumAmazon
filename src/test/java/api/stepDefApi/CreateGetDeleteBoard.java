@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import ui.utilities.ConfigReader;
+import api.utilities.ConfigReader;
 
 import java.io.*;
 import java.util.HashMap;
