@@ -53,4 +53,4 @@ public class putRequestStepDef extends TestBaseApi{
   //      {{baseurl}}/1/cards?idList={{idList}}&key={{apikey}}&token={{token }}&name=card3
 //{{baseurl}}/1/cards/{{idCardYeni}}/attachments?url=https://drive.google.com/drive/folders/10xO0LE7t_xx21ZVc_iwI2glGW3P3ygCE&key={{apikey}}&token={{token }}&name=resume
 //{{baseurl}}/1/checklists?idCard={{idCard2}}&key={{apikey}}&token={{token }}
-//https://psychologicaldevelopmentinstitute.com/tr/psychological-support/
+
