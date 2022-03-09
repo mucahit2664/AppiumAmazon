@@ -87,8 +87,8 @@ public class CreateGetDeleteBoard extends TestBaseApi {
         String fileName=ConfigReader.getProperty("idPath");
 
         //read to text id
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
-        String idText = br.readLine();
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        String idText = reader.readLine();
         System.out.println(idText);
 
         setUp();
@@ -116,8 +116,8 @@ public class CreateGetDeleteBoard extends TestBaseApi {
         String fileName=ConfigReader.getProperty("idPath");
 
         //read to text id
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
-        String idText = br.readLine();
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        String idText = reader.readLine();
 
         setUp();
         spec.pathParams("p1","boards","p2",idText);
